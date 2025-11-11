@@ -1,0 +1,114 @@
+toggle {
+    display: block;
+    width: 60px;
+    height: 26px;
+    border-radius: 48px;
+    background-color: var(--bg-light);
+    position: relative;
+    transition: background-color .3s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+}
+toggle::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 20px;
+    background-color: var(--text);
+    border-radius: 48px;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    transition: left .3s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+toggle:has(input[type="checkbox"]:checked) {
+    background-color: var(--accent);
+}
+toggle:has(input[type="checkbox"]:checked)::before {
+    left: 25px;
+}
+toggle input[type="checkbox"] {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: scale(calc(66 / 28), 100% );
+    left: -2px;
+    top: -3px;
+    z-index: 2;
+}
+toggle input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+select {
+    appearance: base-select;
+    display: block;
+    height: 28px;
+    border-radius: 48px;
+    padding: 5px 8px;
+    font-size: 11pt;
+    background-color: var(--bg-light);
+    position: relative;
+    color: var(--text);
+    border: none;
+    transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+::picker(select) {
+    appearance: base-select;
+    border-radius: 20px;
+    min-width: 200px;
+    padding: 6px;
+    font-size: 12pt;
+    background-color: var(--bg-light);
+    color: var(--text);
+    border: none;
+    transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    margin: 6px 0;
+    transform-origin: 50% 0;
+}
+@keyframes picker-open {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+::picker(select:open) {
+    animation: picker-open .5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+option {
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 14px;
+    height: 28px;
+}
+option:checked {
+    background-color: var(--bg);
+}
+option::checkmark {
+    display: none;
+}
+input[type="number"] {
+    width: 60px;
+    height: 26px;
+    border-radius: 48px;
+    background-color: var(--bg-light);
+    position: relative;
+    transition: background-color .3s cubic-bezier(0.25, 1, 0.5, 1);
+    color: #fff;
+    padding: 0 6px;
+    border: none;
+    font-size: 12pt;
+    line-height: 1;
+    text-align: center;
+
+    /* hide move buttons */
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

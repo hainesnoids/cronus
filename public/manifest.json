@@ -1,0 +1,17 @@
+{
+    "name": "Cronus",
+    "icons": [
+        {
+            "src": "img/icon.png",
+            "type": "image/png",
+            "sizes": "256x256",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "./",
+    "display_override": ["window-controls-overlay"],
+    "display": "standalone",
+    "prefer_related_applications": false,
+    "theme_color": "#202020",
+    "background_color": "#202020"
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <title>Cronus Bus Locator</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="manifest" href="manifest.json">
+        <!-- External Resources -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/root.css">
+        <link rel="stylesheet" href="css/frameworks.css">
+        <link rel="stylesheet" href="css/settings.css">
+        <link rel="stylesheet" href="css/offline.css">
+        <!-- Scripts -->
+        <script src="js/index.js"></script>
+        <script src="js/pagination.js"></script>
+        <script src="js/workers.js"></script>
+        <script src="js/settings.js"></script>
+    </head>
+    <body>
+        <main>
+            <nav>
+                <button class="nav-item selected" data-page-id="home">
+                    <span class="nav-symbol material-symbols-rounded">home</span>
+                    <span class="nav-label">Home</span>
+                </button>
+                <button class="nav-item" data-page-id="map">
+                    <span class="nav-symbol material-symbols-rounded">map_search</span>
+                    <span class="nav-label">Buses</span>
+                </button>
+                <button class="nav-item" data-page-id="routes">
+                    <span class="nav-symbol material-symbols-rounded">directions</span>
+                    <span class="nav-label">Routes</span>
+                </button>
+                <button class="nav-item" data-page-id="settings">
+                    <span class="nav-symbol material-symbols-rounded">settings</span>
+                    <span class="nav-label">Settings</span>
+                </button>
+            </nav>
+            <offline style="display: none;">
+                <span>Source: LAN</span>
+                <span>No Signal</span>
+            </offline>
+            <div class="main">
+                <pagebounds>
+                    <page id="home" class="active">
+                        <h1>Home</h1>
+                        <group class="error width-fill">
+                            <span class="material-symbols-rounded">warning</span>
+                            <h1>Could not connect to server</h1>
+                            <span>The server encountered a problem. Please try again later.</span>
+                            <a href="https://docs.google.com/spreadsheets/d/1C2ggPchZMgKWcIXoDgBIF_QwNnw3QKLkP1H0lgzHCJw/htmlview">View Google Sheet</a>
+                        </group>
+                    </page>
+                    <page id="map">
+                        <h1>Bus Map</h1>
+                    </page>
+                    <page id="routes">
+                        <h1>Routes</h1>
+                        <span>Coming soon ;&rpar;</span>
+                    </page>
+                    <page id="settings">
+                        <h1>Settings</h1>
+                        <settings>
+                            <legend>Configuration</legend>
+                            <group>
+                                <setting data-id="busnumber">
+                                    <info>
+                                        <name>Bus Number</name>
+                                    </info>
+                                    <input type="number">
+                                </setting>
+                            </group>
+                            <legend>Notifications</legend>
+                            <group>
+                                <setting data-id="notifications">
+                                    <info>
+                                        <name>Send Notifications</name>
+                                    </info>
+                                    <toggle><input type="checkbox"></toggle>
+                                </setting>
+                                <setting data-id="advnotiftime">
+                                    <info>
+                                        <name>Advance Notification Time</name>
+                                        <description>Minutes before dismissal to send the notification.</description>
+                                    </info>
+                                    <input type="number" value="1">
+                                </setting>
+                                <setting data-id="numbersystem">
+                                    <info>
+                                        <name>Number System</name>
+                                        <description>Used for buses not owned by the district</description>
+                                    </info>
+                                    <select>
+                                        <option value="district" selected>District Numbers</option>
+                                        <option value="contractor">Contractor Numbers</option>
+                                    </select>
+                                </setting>
+                            </group>
+                            <legend>Routing</legend>
+                            <group>
+                                <setting data-id="doornumbers">
+                                    <info>
+                                        <name>Use Door Numbers</name>
+                                    </info>
+                                    <toggle><input type="checkbox"></toggle>
+                                </setting>
+                            </group>
+                            <legend>Developer Settings</legend>
+                            <group>
+                                <setting>
+                                    <info>
+                                        <name>Debugging</name>
+                                    </info>
+                                    <button data-page-id="debug" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                                <setting>
+                                    <info>
+                                        <name>Restart Onboarding</name>
+                                    </info>
+                                    <button data-page-id="onboarding" class="pageturner"><span class="material-symbols-rounded">open_in_new</span></button>
+                                </setting>
+                            </group>
+                            <legend>About</legend>
+                            <group>
+                                <setting>
+                                    <info>
+                                        <name>Open Source Software</name>
+                                    </info>
+                                    <button data-page-id="oss" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                            </group>
+                            <group class="width-fill">
+                                <footer>
+                                    <span>Cronus</span>
+                                    <span>Version 0.1.0 (starlight-trixie)</span>
+                                    <span>Made with <span class="material-symbols-rounded fill color-accent" id="heart">favorite</span> by Brandon Jone for Lenape High School</span>
+                                </footer>
+                            </group>
+                        </settings>
+                    </page>
+                    <page id="oss" data-links-from="settings">
+                        <button class="back" data-page-id="settings"><span class="material-symbols-rounded">chevron_left</span></button>
+                        <h1>Open Source Software</h1>
+                        <settings>
+                            <group>
+                                <setting>
+                                    <info>
+                                        <name>libDialog</name>
+                                        <description>hainesnoids</description>
+                                    </info>
+                                    <a href="https://github.com/hainesnoids/libdialog" target="_blank"><button class="pageturner"><span class="material-symbols-rounded">open_in_new</span></button></a>
+                                </setting>
+                                <setting>
+                                    <info>
+                                        <name>windowpager</name>
+                                        <description>hainesnoids</description>
+                                    </info>
+                                    <a href="https://github.com/hainesnoids/libdialog" target="_blank"><button class="pageturner"><span class="material-symbols-rounded">open_in_new</span></button></a>
+                                </setting>
+                            </group>
+                        </settings>
+                    </page>
+                    <page id="debug" data-links-from="settings">
+                        <button class="back" data-page-id="settings"><span class="material-symbols-rounded">chevron_left</span></button>
+                        <settings>
+                            <legend>Notifications</legend>
+                            <group>
+                                <setting>
+                                    <info>
+                                        <name>Request Permission</name>
+                                    </info>
+                                    <button class="pageturner" id="a"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                                <setting>
+                                    <info>
+                                        <name>Notify (Desktop)</name>
+                                    </info>
+                                    <button class="pageturner" id="b"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                                <setting>
+                                    <info>
+                                        <name>Notify (Service Worker)</name>
+                                    </info>
+                                    <button class="pageturner" id="c"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                            </group>
+                            <legend>Service Worker</legend>
+                            <group>
+                                <setting>
+                                    <info>
+                                        <name>Initialize Service Worker</name>
+                                    </info>
+                                    <button class="pageturner" id="d"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                                <setting>
+                                    <info>
+                                        <name>Subscribe to push notifications</name>
+                                    </info>
+                                    <button class="pageturner" id="g"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                            </group>
+                            <legend>Connection</legend>
+                            <group>
+                                <setting>
+                                    <info>
+                                        <name>Simulate offline</name>
+                                    </info>
+                                    <button class="pageturner" onclick="offLine()"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                                <setting>
+                                    <info>
+                                        <name>Simulate online</name>
+                                    </info>
+                                    <button class="pageturner" onclick="onLine()"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                            </group>
+                            <legend>Config</legend>
+                            <group>
+                                <setting>
+                                    <info>
+                                        <name>Print Config</name>
+                                    </info>
+                                    <button class="pageturner" id="e"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                                <setting>
+                                    <info>
+                                        <name>Clear Config</name>
+                                    </info>
+                                    <button class="pageturner" id="f"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                            </group>
+                            <legend>Console</legend>
+                            <group>
+                                <div id="console"></div>
+                            </group>
+                        </settings>
+                    </page>
+                </pagebounds>
+            </div>
+        </main>
+    </body>
+</html>

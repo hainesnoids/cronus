@@ -1,0 +1,82 @@
+// libDialog by Hainesnoids
+// Licensed under the MIT License
+
+let libDialog = {
+    'directories': {
+        'sounds': 'https://git.gay/hainesnoids/libdialog/raw/branch/main/defaults/sounds',
+        'icons': 'https://git.gay/hainesnoids/libdialog/raw/branch/main/defaults/img'
+    },
+    'useLocalFiles': function(stylesheetPresent = true, icons, sounds) {
+        this.directories.sounds = sounds;
+        this.directories.icons = icons;
+        if (stylesheetPresent === true) {
+            document.querySelector('.libdialog-default-stylesheet').remove();
+        }
+    }
+}
+
+// Creates a dialog and shows it to the user. This function runs asynchronously and will halt execution until the user chooses a response.
+//
+// Documentation: https://git.gay/hainesnoids/libdialog#readme
+async function showDialog(message = '', type = 'info', title = 'Alert', buttons = [{id: 'ok', text: 'OK'}]) {
+    // libDialog-specific scripts
+    async function playSound(url) {
+        const sound = new Audio(url);
+        try {
+            await sound.play();
+            return true;
+        } catch(e) {
+            return false;
+        }
+    }
+
+    // create a dialog element from the template
+    const template = document.querySelector('#libdialog');
+    const dialog = template.content.querySelector('.libdialog-dialog').cloneNode(true);
+
+    // set the information
+    const dialogIcon = dialog.querySelector('.libdialog-icon');
+    const dialogTitle = dialog.querySelector('.libdialog-title');
+    const dialogContent = dialog.querySelector('.libdialog-content');
+
+    dialog.classList.add(`libdialog-type-${type}`);
+    dialogIcon.src = `${libDialog.directories.icons}/${type}.png`;
+    dialogContent.innerHTML = message;
+    dialogTitle.innerHTML = title;
+
+
+    return new Promise(async (resolve) => {
+        // add buttons
+        const dialogButtonsWrapper = dialog.querySelector('.libdialog-buttons');
+        buttons.forEach((item) => {
+            const button = document.createElement('button');
+            button.classList.add('libdialog-button');
+            button.innerHTML = item.text;
+            button.onclick = () => dialogRespond(item.id);
+            dialogButtonsWrapper.appendChild(button);
+        })
+
+        // show the dialog and play the corresponding sound
+        document.body.appendChild(dialog);
+        dialog.showModal();
+        await playSound(`${libDialog.directories.sounds}/${type}.wav`);
+
+        // return the value from the user
+        function dialogRespond(id) {
+            dialog.close();
+            playSound(`${libDialog.directories.sounds}/select.wav`);
+            dialog.remove();
+            resolve(id);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => { // Add elements to the page if they are missing
+    try {
+        document.querySelector('template#libdialog');
+    } catch(e) {
+        // Template is missing, create it
+        document.body.innerHTML += `<template id="libdialog"><dialog class="libdialog-dialog"><img class="libdialog-icon" alt="" src=""/><h1 class="libdialog-title"></h1><p class="libdialog-content"></p><div class="libdialog-buttons"></div></dialog></template>`
+    }
+    document.head.innerHTML +=`<link rel="stylesheet" class="libdialog-default-stylesheet" href="https://github.com/Nodysey/libdialog/blob/main/defaults/dialog.css">`;
+})
