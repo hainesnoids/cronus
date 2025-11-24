@@ -1,0 +1,50 @@
+.buses {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.bus-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+row {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+clm {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+bus {
+    width: 64px;
+    height: 36px;
+    border-radius: 12px;
+    background-color: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ffffff20;
+}
+bus[highlight] {
+    border: 2px solid var(--accent);
+}
+.buses-south {
+    margin-top: auto;
+}
+.buses-west clm {
+    display: flex;
+    flex-direction: row;
+}
+.buses-west clm row {
+    display: flex;
+    flex-direction: column;
+}
+.buses-west bus {
+    width: 36px;
+    height: 64px;
+}

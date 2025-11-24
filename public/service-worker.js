@@ -1,5 +1,5 @@
 setTimeout(() => {
-    self.registration.showNotification('hi');
+    self.registration.showNotification('Test notification please ignore.');
 }, 2000);
 self.addEventListener('message', (event) => {
     let body = event.data;
