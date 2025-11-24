@@ -68,25 +68,3 @@ function onLine() {
 
 window.addEventListener('offline',offLine);
 window.addEventListener('online',onLine);
-
-function pageInit() {
-    const pageBounds = document.querySelector("pagebounds");
-    const pages = document.querySelectorAll('pagebounds > page');
-    for (let idx = 0; idx < pages.length; idx++) {
-        let page = pages[idx];
-        const pageId = page.getAttribute('id');
-        const pageLink = document.querySelector(`button[data-page-id="${pageId}"]`);
-        if (pageLink) {
-            pageLink.addEventListener('click', () => {
-                pages.forEach((p) => {p.classList.remove('active')});
-                page.classList.add('active');
-                document.querySelector('.selected[data-page-id]').classList.remove('selected');
-                pageLink.classList.add('selected');
-                //pageBounds.style.left = `-${idx}00%`;
-                window.scrollTo({behavior: 'smooth', top: 0});
-            })
-        } else {
-            console.warn(`Page ${pageId} does not have a corresponding link to it.`);
-        }
-    }
-}

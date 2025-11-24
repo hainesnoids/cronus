@@ -8,11 +8,16 @@ module.exports = {
     execute: function(app) {
         function findKeyByValue(value, obj) {
             for (const key in obj) {
-                if (obj[key] === value) {
-                    return key;
+                if (Array.isArray(obj[key])) {
+                    if (obj[key].includes(value)) {
+                        return {
+                            'position': key,
+                            'offset': obj[key].indexOf(value)
+                        };
+                    }
                 }
             }
-            return null;
+            return null
         }
         app.get('/api/buslocation', async (req, res) => {
             res.json({'error': 'You must provide a bus number.'});

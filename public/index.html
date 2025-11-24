@@ -12,11 +12,16 @@
         <link rel="stylesheet" href="css/frameworks.css">
         <link rel="stylesheet" href="css/settings.css">
         <link rel="stylesheet" href="css/offline.css">
+        <link rel="stylesheet" href="css/windowpager.css">
+        <link rel="stylesheet" href="css/homepage.css">
         <!-- Scripts -->
         <script src="js/index.js"></script>
         <script src="js/pagination.js"></script>
         <script src="js/workers.js"></script>
         <script src="js/settings.js"></script>
+        <script src="js/windowpager.js"></script>
+        <script src="js/homepage.js"></script>
+        <script src="js/onboarding.js"></script>
     </head>
     <body>
         <main>
@@ -25,13 +30,17 @@
                     <span class="nav-symbol material-symbols-rounded">home</span>
                     <span class="nav-label">Home</span>
                 </button>
-                <button class="nav-item" data-page-id="map">
+                <button class="nav-item" data-page-id="map" hidden>
                     <span class="nav-symbol material-symbols-rounded">map_search</span>
                     <span class="nav-label">Buses</span>
                 </button>
-                <button class="nav-item" data-page-id="routes">
+                <button class="nav-item" data-page-id="routes" hidden>
                     <span class="nav-symbol material-symbols-rounded">directions</span>
                     <span class="nav-label">Routes</span>
+                </button>
+                <button class="nav-item" id="install">
+                    <span class="nav-symbol material-symbols-rounded">download</span>
+                    <span class="nav-label">Install</span>
                 </button>
                 <button class="nav-item" data-page-id="settings">
                     <span class="nav-symbol material-symbols-rounded">settings</span>
@@ -44,17 +53,149 @@
             </offline>
             <div class="main">
                 <pagebounds>
+                    <page id="onboarding" nopadding>
+                        <windowpager data-page="0">
+                            <windowpagercontentarea>
+                                <windowpage style="background-color: #1f242a" class="windowpage-welcome">
+                                    <windowpagethumbnail>
+                                        <img src="img/onboarding/welcome.png" alt="Welcome Banner">
+                                    </windowpagethumbnail>
+                                    <windowpagebody>
+                                        <h1>Welcome to Cronus</h1>
+                                        <p>Gone are the days of trying to scan the QR code on the TVs then not knowing where to leave.<br><br>Cronus does all that.</p>
+                                        <div class="button-row">
+                                            <button class="primary" purpose="next">Get Started</button>
+                                        </div>
+                                    </windowpagebody>
+                                </windowpage>
+                                <windowpage>
+                                    <windowpagebody>
+                                        <h1>Set your bus number</h1>
+                                        <span>You can find your bus number on your Genesis account.</span>
+                                        <setting data-id="busnumber" class="bigsetting">
+                                            <input type="number">
+                                        </setting>
+                                        <div class="button-row">
+                                            <button class="secondary" purpose="prev">Back</button>
+                                            <button class="primary" purpose="next">Next</button>
+                                        </div>
+                                    </windowpagebody>
+                                </windowpage>
+                                <windowpage>
+                                    <windowpagebody>
+                                        <h1>Enable Notifications</h1>
+                                        <span>Get notified on where exactly your bus is.</span>
+                                        <button class="primary button-with-icon" id="onboarding-notifications-button"><span class="material-symbols-rounded">notification_add</span>Request Permission</button>
+                                        <div class="button-row">
+                                            <button class="secondary" purpose="prev">Back</button>
+                                            <button class="primary" purpose="next">Next</button>
+                                        </div>
+                                    </windowpagebody>
+                                </windowpage>
+                                <windowpage>
+                                    <windowpagebody>
+                                        <h1>All done!</h1>
+                                        <div class="button-row">
+                                            <button class="secondary" purpose="prev">Back</button>
+                                            <button class="primary" purpose="exit">Awesome!</button>
+                                        </div>
+                                    </windowpagebody>
+                                </windowpage>
+                            </windowpagercontentarea>
+                        </windowpager>
+                    </page>
                     <page id="home" class="active">
                         <h1>Home</h1>
-                        <group class="error width-fill">
+                        <group class="error width-fill" hidden>
                             <span class="material-symbols-rounded">warning</span>
                             <h1>Could not connect to server</h1>
                             <span>The server encountered a problem. Please try again later.</span>
                             <a href="https://docs.google.com/spreadsheets/d/1C2ggPchZMgKWcIXoDgBIF_QwNnw3QKLkP1H0lgzHCJw/htmlview">View Google Sheet</a>
                         </group>
+                        <group>
+                            <h2 class="bus-location-header">Your bus is </h2>
+                            <div class="buses">
+                                <div class="bus-row buses-north">
+                                    <legend>North</legend>
+                                    <row>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                    </row>
+                                    <row>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus highlight>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                    </row>
+                                    <row>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                    </row>
+                                    <row>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                        <bus>38</bus>
+                                    </row>
+                                </div>
+                                <row>
+                                    <div class="bus-row buses-south">
+                                        <legend>South</legend>
+                                        <row>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                        </row>
+                                        <row>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                        </row>
+                                    </div>
+                                    <div class="bus-row buses-west">
+                                        <legend>West</legend>
+                                        <row>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                        </row>
+                                        <row>
+                                            <bus>38</bus>
+                                            <bus>38</bus>
+                                        </row>
+                                    </div>
+                                </row>
+                            </div>
+                        </group>
                     </page>
                     <page id="map">
                         <h1>Bus Map</h1>
+                        <span>Coming soon ;&rpar;</span>
                     </page>
                     <page id="routes">
                         <h1>Routes</h1>
@@ -135,7 +276,7 @@
                                 <footer>
                                     <span>Cronus</span>
                                     <span>Version 0.1.0 (starlight-trixie)</span>
-                                    <span>Made with <span class="material-symbols-rounded fill color-accent" id="heart">favorite</span> by Brandon Jone for Lenape High School</span>
+                                    <span>Made with <span class="material-symbols-rounded fill color-accent" id="heart">favorite</span> by Brandon Jones for Lenape High School</span>
                                 </footer>
                             </group>
                         </settings>

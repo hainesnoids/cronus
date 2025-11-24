@@ -3,7 +3,7 @@ const path = require('node:path');
 
 module.exports = {
     data: {
-        'endpoint': 'buses'
+        'endpoint': '/api/buses'
     },
     execute: function(app) {
         async function parseSheet() {
@@ -106,12 +106,14 @@ module.exports = {
             }
 
             let sheetData = await getSheet(`https://docs.google.com/spreadsheets/d/${dataSheet}/export?format=csv`);
-            const busData = parseBuses(sheetData);
-            const filePath = path.join(__dirname, 'dashboard', 'clientData.json');
-            const content = JSON.stringify({ "songLength": data.proglength });
-            fs.writeFile(filePath, content)
+            const content = JSON.stringify(parseBuses(sheetData));
+            await fs.writeFile(path.join(__dirname, '..', 'resources', 'buses.json'), content)
         }
-        app.get('/api/buses', (req, res) => {
+        setInterval(parseSheet, 60);
+        parseSheet().then();
+        app.get('/api/buses', async (req, res) => {
+            const file = await fs.readFile(path.join(__dirname, '..', 'resources', 'buses.json'), { encoding: 'utf8' });
+            res.json(JSON.parse(file));
         });
     }
 }

@@ -2,9 +2,15 @@
     "name": "Cronus",
     "icons": [
         {
-            "src": "img/icon.png",
+            "src": "img/icon_256.png",
             "type": "image/png",
             "sizes": "256x256",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "img/icon_1024.png",
+            "type": "image/png",
+            "sizes": "1024x1024",
             "purpose": "any maskable"
         }
     ],
@@ -12,6 +18,6 @@
     "display_override": ["window-controls-overlay"],
     "display": "standalone",
     "prefer_related_applications": false,
-    "theme_color": "#202020",
-    "background_color": "#202020"
+    "theme_color": "#1a1a1a",
+    "background_color": "#1a1a1a"
 }

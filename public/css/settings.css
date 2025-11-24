@@ -89,3 +89,12 @@ group.width-fill {
 #console span {
     font-family: monospace;
 }
+setting.bigsetting {
+    height: 80px;
+}
+setting.bigsetting input {
+    width: 160px;
+    height: 64px;
+    font-size: 32pt;
+    background-color: var(--bg);
+}
