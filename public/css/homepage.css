@@ -1,7 +1,9 @@
 .buses {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 12px;
+    width: 100%;
+    max-width: 600px;
     overflow-x: scroll;
     scrollbar-width: none;
 }
@@ -9,11 +11,13 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    width: min-content;
 }
 row {
     display: flex;
     flex-direction: row;
     gap: 6px;
+    width: min-content;
 }
 clm {
     display: flex;
@@ -29,9 +33,13 @@ bus {
     justify-content: center;
     align-items: center;
     border: 2px solid #ffffff20;
+    font-family: "JetBrains Mono", monospace;
 }
 bus[highlight] {
     border: 2px solid var(--accent);
+}
+.buses-north row {
+    flex-direction: row-reverse;
 }
 .buses-south {
     margin-top: auto;
