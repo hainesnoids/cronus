@@ -30,10 +30,12 @@ setting {
     padding: 0 0 0 6px;
     position: relative;
 }
-group setting:not(:last-of-type) {
+group setting:not(:last-child),
+group stngp:not(:last-child) {
     margin-bottom: 1px;
 }
-group setting:not(:last-of-type)::after {
+group setting:not(:last-child)::after,
+group stngp:not(:last-child)::after {
     content: '';
     display: block;
     width: 100%;
@@ -97,4 +99,50 @@ setting.bigsetting input {
     height: 64px;
     font-size: 32pt;
     background-color: var(--bg);
+}
+stngp { /* setting paragraph */
+    padding: 12px 0;
+    display: block;
+    position: relative;
+}
+stngp p:first-child {
+    margin-top: 0;
+}
+stngp p:last-child {
+    margin-bottom: 0;
+}
+.socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+}
+.socials li img {
+    width: 24px;
+}
+.socials li a {
+    text-decoration: none;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 36px;
+    background-color: var(--bg-light);
+}
+.socials li a:active {
+    color: var(--accent);
+}
+.socials li span {
+    display: none;
+}
+.settings-page-banner {
+    margin: -12px -12px -6px;
+    width: calc(100% + 24px);
+    border-radius: 24px 24px 0 0;
+    max-height: 400px;
 }

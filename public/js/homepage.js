@@ -15,7 +15,9 @@ async function renderBuses() {
             .then(res => res.json())
             .then(d => d.location);
         console.log(busLocation);
-        document.querySelector(`bus[position="${busLocation.position}"][offset="${busLocation.offset}"]`).setAttribute('highlight', 'true');
+        const focusedBus = document.querySelector(`bus[position="${busLocation.position}"][offset="${busLocation.offset}"]`);
+        focusedBus.setAttribute('highlight', 'true');
+        focusedBus.scrollIntoView({ 'block': 'center', 'behavior': 'smooth', 'container': 'nearest' });
         document.querySelector('.bus-location-header').innerText = `Your bus is the ${busLocation.offset} bus in section ${busLocation.position}`;
     }
 }

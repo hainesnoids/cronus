@@ -73,7 +73,9 @@
                                         <h1>Set your bus number</h1>
                                         <span>You can find your bus number on your Genesis account.</span>
                                         <setting data-id="busnumber" class="bigsetting">
-                                            <input type="number">
+                                            <label>
+                                                <input type="number">
+                                            </label>
                                         </setting>
                                         <div class="button-row">
                                             <button class="secondary" purpose="prev">Back</button>
@@ -105,37 +107,25 @@
                         </windowpager>
                     </page>
                     <page id="home" class="active">
-                        <h1>Home</h1>
                         <group class="error width-fill" hidden>
                             <span class="material-symbols-rounded">warning</span>
                             <h1>Could not connect to server</h1>
                             <span>The server encountered a problem. Please try again later.</span>
                             <a href="https://docs.google.com/spreadsheets/d/1C2ggPchZMgKWcIXoDgBIF_QwNnw3QKLkP1H0lgzHCJw/htmlview">View Google Sheet</a>
                         </group>
-                        <group>
-                            <h2 class="bus-location-header">Your bus is </h2>
+                        <homemap>
                             <div class="buses">
                                 <div class="bus-row buses-north">
                                     <legend>North</legend>
                                     <row>
-                                        <bus position="northA" offset="0">--</bus>
-                                        <bus position="northA" offset="1">--</bus>
-                                        <bus position="northA" offset="2">--</bus>
-                                        <bus position="northA" offset="3">--</bus>
-                                        <bus position="northA" offset="4">--</bus>
-                                        <bus position="northA" offset="5">--</bus>
-                                        <bus position="northA" offset="6">--</bus>
-                                        <bus position="northA" offset="7">--</bus>
-                                    </row>
-                                    <row>
-                                        <bus position="northB" offset="0">--</bus>
-                                        <bus position="northB" offset="1">--</bus>
-                                        <bus position="northB" offset="2">--</bus>
-                                        <bus position="northB" offset="3">--</bus>
-                                        <bus position="northB" offset="4">--</bus>
-                                        <bus position="northB" offset="5">--</bus>
-                                        <bus position="northB" offset="6">--</bus>
-                                        <bus position="northB" offset="7">--</bus>
+                                        <bus position="northD" offset="0">--</bus>
+                                        <bus position="northD" offset="1">--</bus>
+                                        <bus position="northD" offset="2">--</bus>
+                                        <bus position="northD" offset="3">--</bus>
+                                        <bus position="northD" offset="4">--</bus>
+                                        <bus position="northD" offset="5">--</bus>
+                                        <bus position="northD" offset="6">--</bus>
+                                        <bus position="northD" offset="7">--</bus>
                                     </row>
                                     <row>
                                         <bus position="northC" offset="0">--</bus>
@@ -148,14 +138,24 @@
                                         <bus position="northC" offset="7">--</bus>
                                     </row>
                                     <row>
-                                        <bus position="northD" offset="0">--</bus>
-                                        <bus position="northD" offset="1">--</bus>
-                                        <bus position="northD" offset="2">--</bus>
-                                        <bus position="northD" offset="3">--</bus>
-                                        <bus position="northD" offset="4">--</bus>
-                                        <bus position="northD" offset="5">--</bus>
-                                        <bus position="northD" offset="6">--</bus>
-                                        <bus position="northD" offset="7">--</bus>
+                                        <bus position="northB" offset="0">--</bus>
+                                        <bus position="northB" offset="1">--</bus>
+                                        <bus position="northB" offset="2">--</bus>
+                                        <bus position="northB" offset="3">--</bus>
+                                        <bus position="northB" offset="4">--</bus>
+                                        <bus position="northB" offset="5">--</bus>
+                                        <bus position="northB" offset="6">--</bus>
+                                        <bus position="northB" offset="7">--</bus>
+                                    </row>
+                                    <row>
+                                        <bus position="northA" offset="0">--</bus>
+                                        <bus position="northA" offset="1">--</bus>
+                                        <bus position="northA" offset="2">--</bus>
+                                        <bus position="northA" offset="3">--</bus>
+                                        <bus position="northA" offset="4">--</bus>
+                                        <bus position="northA" offset="5">--</bus>
+                                        <bus position="northA" offset="6">--</bus>
+                                        <bus position="northA" offset="7">--</bus>
                                     </row>
                                 </div>
                                 <div class="bus-row buses-south">
@@ -191,6 +191,10 @@
                                     </clm>
                                 </div>
                             </div>
+                        </homemap>
+                        <group>
+                            <h2 class="bus-location-header">Your bus is </h2>
+                            
                         </group>
                     </page>
                     <page id="map">
@@ -210,7 +214,9 @@
                                     <info>
                                         <name>Bus Number</name>
                                     </info>
-                                    <input type="number">
+                                    <label>
+                                        <input type="number">
+                                    </label>
                                 </setting>
                             </group>
                             <legend>Notifications</legend>
@@ -219,24 +225,24 @@
                                     <info>
                                         <name>Send Notifications</name>
                                     </info>
-                                    <toggle><input type="checkbox"></toggle>
+                                    <toggle><label><input type="checkbox"></label></toggle>
                                 </setting>
                                 <setting data-id="advnotiftime">
                                     <info>
                                         <name>Advance Notification Time</name>
                                         <description>Minutes before dismissal to send the notification.</description>
                                     </info>
-                                    <input type="number" value="1">
+                                    <label><input type="number" value="1"></label>
                                 </setting>
                                 <setting data-id="numbersystem">
                                     <info>
                                         <name>Number System</name>
                                         <description>Used for buses not owned by the district</description>
                                     </info>
-                                    <select>
+                                    <label><select>
                                         <option value="district" selected>District Numbers</option>
                                         <option value="contractor">Contractor Numbers</option>
-                                    </select>
+                                    </select></label>
                                 </setting>
                             </group>
                             <legend>Routing</legend>
@@ -245,7 +251,7 @@
                                     <info>
                                         <name>Use Door Numbers</name>
                                     </info>
-                                    <toggle><input type="checkbox"></toggle>
+                                    <toggle><label><input type="checkbox"></label></toggle>
                                 </setting>
                             </group>
                             <legend>Developer Settings</legend>
@@ -267,6 +273,12 @@
                             <group>
                                 <setting>
                                     <info>
+                                        <name>About the Developer</name>
+                                    </info>
+                                    <button data-page-id="about" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
+                                </setting>
+                                <setting>
+                                    <info>
                                         <name>Open Source Software</name>
                                     </info>
                                     <button data-page-id="oss" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
@@ -275,9 +287,70 @@
                             <group class="width-fill">
                                 <footer>
                                     <span>Cronus</span>
-                                    <span>Version 0.1.0 (starlight-trixie)</span>
+                                    <span>Version 1.0.0 (sunburst-pinkie)</span>
                                     <span>Made with <span class="material-symbols-rounded fill color-accent" id="heart">favorite</span> by Brandon Jones for Lenape High School</span>
                                 </footer>
+                            </group>
+                        </settings>
+                    </page>
+                    <page id="about" data-links-from="settings">
+                        <button class="back" data-page-id="settings"><span class="material-symbols-rounded">chevron_left</span></button>
+                        <h1>About the Developer</h1>
+                        <settings>
+                            <group>
+                                <stngp>
+                                    <img class="settings-page-banner" src="img/pon3.gif" alt="vinyl scratch my fav" title="vinyl scratch my fav &lt;3">
+                                    <p>I'm just a 14-year-old person doing what I really enjoy.</p>
+                                    <p>I learned Luau in 2020, but started learning Javascript in late 2024 as I didn't want to deal with the limitations of the big Luau-powered platforms (just Roblox).</p>
+                                    <p>I came up with the idea for Cronus around October 2025 after realizing how much pain people had to go through just to figure out where their bus is. I worked on it on-and-off for the next month, and launched it on the 1st of December.</p>
+                                    <p>You can also visit my personal website at <a target="_blank" href="https://ws4k.net">ws4k.net</a> if you wanted to view some of my other projects.</p>
+                                </stngp>
+                                <stngp>
+                                    <ul class="socials">
+                                        <li>
+                                            <a target="_blank" href="https://bsky.app/profile/ws4k.net">
+                                                <img src="img/socials/bluesky.svg" alt="Bluesky Icon" style="margin-top: 2px;">
+                                                <span>Bluesky</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://youtube.com/@hainesnoids">
+                                                <img src="img/socials/youtube.svg" alt="YouTube Icon">
+                                                <span>Youtube</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://twitch.tv/hainesnoids">
+                                                <img src="img/socials/twitch.svg" alt="Twitch Icon" style="margin-top: 2px;width: 22px;">
+                                                <span>Twitch</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://discord.gg/9cT6rmxvT9">
+                                                <img src="img/socials/discord.svg" alt="Discord Icon">
+                                                <span>Discord</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://last.fm/user/hainesnoids">
+                                                <img src="img/socials/lastfm.svg" alt="Last.fm Icon">
+                                                <span>Last.fm</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://steamcommunity.com/id/hainesnoids">
+                                                <img src="img/socials/steam.svg" alt="Steam Icon">
+                                                <span>Steam</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href="https://github.com/hainesnoids">
+                                                <img src="img/socials/github.svg" alt="GitHub Icon">
+                                                <span>GitHub</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </stngp>
                             </group>
                         </settings>
                     </page>
