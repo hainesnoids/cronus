@@ -14,7 +14,7 @@
             "purpose": "any maskable"
         }
     ],
-    "start_url": "./",
+    "start_url": "/app",
     "display_override": ["window-controls-overlay"],
     "display": "standalone",
     "prefer_related_applications": false,
