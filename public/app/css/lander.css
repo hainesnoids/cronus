@@ -19,20 +19,48 @@ main group setting:first-of-type {
 main group setting:first-of-type h1 {
     margin: 0;
 }
+main group setting.instructions {
+    padding: 12px 6px;
+}
+main group setting.instructions h2,
+main group setting.instructions p {
+    margin: 0;
+}
 main kbd {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 24px;
-    height: 24px;
-    border-radius: 33%;
+    min-width: 24px;
+    min-height: 24px;
+    border-radius: 8px;
     background: var(--bg-light);
     border: 1px solid var(--accent);
+    padding: 3px 4px;
 }
 main kbd span.material-symbols-rounded {
     font-size: 14pt;
 }
 main small {
     display: block;
-    margin: -2px 0 12px;
+    margin: 12px 0;
+}
+#install {
+    display: flex;
+    align-items: center;
+    padding: 6px 16px 6px 12px;
+    margin: 10px 0 0;
+}
+iconbox {
+    display: inline;
+    font-weight: 600;
+}
+iconbox span.material-symbols-rounded {
+    font-size: 1.25em;
+    position: relative;
+    top: 0.125em;
+    margin-right: 0.08em;
+}
+iconbox span:not(.material-symbols-rounded) {
+    position: relative;
+    top: auto;
 }

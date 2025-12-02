@@ -7,8 +7,8 @@ module.exports = {
     },
     execute: function(app) {
         async function parseSheet() {
-            //const dataSheet = '1C2ggPchZMgKWcIXoDgBIF_QwNnw3QKLkP1H0lgzHCJw';
-            const dataSheet = '1N0p1oCXAld32EVLG-qMs5DSnWAFJO1bDR_rkR96Hmvk';
+            const dataSheet = '1C2ggPchZMgKWcIXoDgBIF_QwNnw3QKLkP1H0lgzHCJw';
+            //const dataSheet = '1N0p1oCXAld32EVLG-qMs5DSnWAFJO1bDR_rkR96Hmvk';
 
             function getSheet(url) {
                 return new Promise(function (resolve, reject) {
@@ -79,28 +79,28 @@ module.exports = {
                         table[8][3]
                     ],
                     westA: [
-                        table[14][4],
-                        table[15][4]
+                        table[11][4],
+                        table[12][4]
                     ],
                     westB: [
-                        table[14][5],
-                        table[15][5]
+                        table[11][5],
+                        table[12][5]
                     ],
                     southA: [
-                        table[18][0],
-                        table[18][1],
-                        table[18][2],
-                        table[18][3],
-                        table[18][4],
-                        table[18][5]
+                        table[15][0],
+                        table[15][1],
+                        table[15][2],
+                        table[15][3],
+                        table[15][4],
+                        table[15][5]
                     ],
                     southB: [
-                        table[19][0],
-                        table[19][1],
-                        table[19][2],
-                        table[19][3],
-                        table[19][4],
-                        table[19][5]
+                        table[16][0],
+                        table[16][1],
+                        table[16][2],
+                        table[16][3],
+                        table[16][4],
+                        table[16][5]
                     ]
                 };
             }

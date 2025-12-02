@@ -51,11 +51,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 nav {
     /*--round-screen-margin: env(safe-area-inset-bottom,18px);*/
-    --round-screen-margin: 18px;
+    --round-screen-margin: 24px;
     display: flex;
     width: 100%;
     height: calc(var(--round-screen-margin) + 48px);
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     background-color: var(--bg);
     /*position: fixed;
@@ -248,3 +248,15 @@ group.error span {
 group.error a {
     margin-bottom: 12px;
 }
+/*
+@media (prefers-color-scheme: light) {
+    * {
+        --bg-dark: hsl(0,0%,95%);
+        --bg: hsl(0,0%,98%);
+        --bg-light: hsl(0,0%,100%);
+        --text: hsl(0,0%,0%);
+        --text-muted: hsl(0,0%,20%);
+        --text-note: hsl(0,0%,40%);
+    }
+}
+ */
