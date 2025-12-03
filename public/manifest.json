@@ -2,13 +2,13 @@
     "name": "Cronus",
     "icons": [
         {
-            "src": "img/icon_256.png",
+            "src": "/app/img/icon_256.png",
             "type": "image/png",
             "sizes": "256x256",
             "purpose": "any maskable"
         },
         {
-            "src": "img/icon_1024.png",
+            "src": "/app/img/icon_1024.png",
             "type": "image/png",
             "sizes": "1024x1024",
             "purpose": "any maskable"
