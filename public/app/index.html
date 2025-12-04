@@ -34,7 +34,7 @@
                     <span class="nav-symbol material-symbols-rounded">map_search</span>
                     <span class="nav-label">Buses</span>
                 </button>
-                <button class="nav-item" data-page-id="routes" hidden>
+                <button class="nav-item" data-page-id="routes">
                     <span class="nav-symbol material-symbols-rounded">directions</span>
                     <span class="nav-label">Routes</span>
                 </button>
@@ -103,6 +103,11 @@
                         </windowpager>
                     </page>
                     <page id="home" class="active">
+                        <header>
+                            <button>Button</button>
+                            <h1>Home</h1>
+                            <select></select>
+                        </header>
                         <group class="error width-fill" hidden>
                             <span class="material-symbols-rounded">warning</span>
                             <h1>Could not connect to server</h1>
@@ -190,7 +195,7 @@
                         </homemap>
                         <group>
                             <h2 class="bus-location-header">Your bus is </h2>
-                            
+
                         </group>
                     </page>
                     <page id="map">
