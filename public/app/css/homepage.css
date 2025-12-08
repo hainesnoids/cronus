@@ -75,3 +75,30 @@ bus[highlight] {
     width: 36px;
     height: 64px;
 }
+.finder {
+    padding: 12px;
+}
+.finder h2 {
+    margin: 0;
+}
+.finder-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-dark);
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 8px;
+    gap: 12px;
+}
+.finder-contractor {
+    height: 36px;
+    max-width: 100%;
+}
+.finder-number {
+    font-size: 24pt;
+    line-height: 1;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+}

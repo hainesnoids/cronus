@@ -28,6 +28,10 @@ function pageInit() {
                 document.querySelectorAll(`*[data-page-id="${pageId}"]`).forEach((b) => {b.classList.add('selected')});
                 //pageLink.classList.add('selected');
                 //pageBounds.style.left = `-${idx}00%`;
+                if (pageId === 'home') { // hardcoded re-rendering of home screen content when switching to the home screen
+                    renderBuses().then();
+                    getContractorNumber().then();
+                }
             })
         })
         if (!pageLinks) {

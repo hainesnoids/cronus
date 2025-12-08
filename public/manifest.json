@@ -15,7 +15,6 @@
         }
     ],
     "start_url": "/app",
-    "display_override": ["window-controls-overlay"],
     "display": "standalone",
     "prefer_related_applications": false,
     "theme_color": "#1a1a1a",
