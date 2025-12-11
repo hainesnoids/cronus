@@ -1,7 +1,7 @@
 let busRefreshInterval;
 async function renderBuses() {
     const config = JSON.parse(localStorage.getItem('config'));
-    if (config[autoupdate]) {
+    if (config['autoupdate']) {
         homePageAutoUpdate().then();
     }
     let allBuses = await fetch('/api/buses')
