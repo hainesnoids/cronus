@@ -103,10 +103,10 @@ function initWindowPager() {
             },1000)
         })
         // fix first page height
-        const pageObject = rootPageObject.querySelectorAll('windowpage')[Number(rootPageObject.getAttribute('data-page'))];
-        let contentHeight = Number(pageObject.getAttribute('data-height'));
-        if (contentHeight) {
-            rootPageObject.parentElement.style.height = `${contentHeight}px`;
-        }
+        // const pageObject = rootPageObject.querySelectorAll('windowpage')[Number(rootPageObject.getAttribute('data-page'))];
+        // let contentHeight = Number(pageObject.getAttribute('data-height'));
+        // if (contentHeight) {
+        //     rootPageObject.parentElement.style.height = `${contentHeight}px`;
+        // }
     })
 }

@@ -1,4 +1,9 @@
+let busRefreshInterval;
 async function renderBuses() {
+    const config = JSON.parse(localStorage.getItem('config'));
+    if (config[autoupdate]) {
+        homePageAutoUpdate().then();
+    }
     let allBuses = await fetch('/api/buses')
         .then(res => res.json());
     if (allBuses) {
@@ -8,7 +13,7 @@ async function renderBuses() {
             }
         });
     }
-    let busNumber = JSON.parse(localStorage.getItem('config'))['busnumber'];
+    let busNumber = config['busnumber'];
     if (busNumber) {
         let busLocation = await fetch(`/api/buslocation/${busNumber}`)
             .then(res => res.json())
@@ -29,6 +34,25 @@ async function getContractorNumber() {
         document.querySelector('.finder-contractor').src = `img/contractor-logos/${contractor}.svg`;
         document.querySelector('.finder-number').innerHTML = contractorNumber;
     }
+}
+
+async function homePageAutoUpdate() {
+    busRefreshInterval = setInterval(renderBuses, 30000);
+    const observerOptions = { attributes: true };
+    const homePage = document.querySelector('page#home');
+    let docuPageMutationObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            console.log(mutation.type, mutation.target.id, mutation.attributeName);
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class' && !String(mutation.target.className).includes('active')) { // we love pagination api not coming with built-in events
+                busRefreshInterval = null;
+                disconnectObserver();
+            }
+        });
+    });
+    function disconnectObserver() {
+        docuPageMutationObserver.disconnect();
+    }
+    docuPageMutationObserver.observe(homePage);
 }
 
 document.addEventListener('DOMContentLoaded',renderBuses);
