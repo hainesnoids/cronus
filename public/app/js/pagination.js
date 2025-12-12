@@ -1,3 +1,5 @@
+const DocuPager = new EventTarget();
+globalThis.DocuPager = DocuPager;
 function pageInit() {
     const pageBounds = document.querySelector("pagebounds");
     const pages = document.querySelectorAll('pagebounds > page');
@@ -28,10 +30,10 @@ function pageInit() {
                 document.querySelectorAll(`*[data-page-id="${pageId}"]`).forEach((b) => {b.classList.add('selected')});
                 //pageLink.classList.add('selected');
                 //pageBounds.style.left = `-${idx}00%`;
-                if (pageId === 'home') { // hardcoded re-rendering of home screen content when switching to the home screen
-                    renderBuses().then();
-                    getContractorNumber().then();
-                }
+                DocuPager.dispatchEvent(new CustomEvent('page-switch', { detail: {
+                    sourcePage: oldPage.id,
+                    targetPage: pageId,
+                }}));
             })
         })
         if (!pageLinks) {

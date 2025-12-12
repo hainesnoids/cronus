@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="css/offline.css">
     <link rel="stylesheet" href="css/windowpager.css">
     <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/routes.css">
+    <!-- Libraries -->
+    <script src="bin/leaflet.min.js"></script>
     <!-- Scripts -->
     <script src="js/index.js"></script>
     <script src="js/pagination.js"></script>
@@ -22,6 +26,7 @@
     <script src="js/windowpager.js"></script>
     <script src="js/homepage.js"></script>
     <script src="js/onboarding.js"></script>
+    <script src="js/routes.js"></script>
 </head>
 <body>
 <main>
@@ -202,8 +207,9 @@
                 <span>Coming soon ;&rpar;</span>
             </page>
             <page id="routes">
-                <h1>Routes</h1>
-                <span>Coming soon ;&rpar;</span>
+                <div class="map-bounds">
+                    <div id="map-canvas"></div>
+                </div>
             </page>
             <page id="settings">
                 <h1>Settings</h1>
@@ -293,7 +299,7 @@
                     <group class="width-fill">
                         <footer>
                             <span>Cronus</span>
-                            <span>Version 1.2.0 (3) (sunburst-rainbow)</span>
+                            <span>Version 1.2.1 (1) (sunburst-rainbow)</span>
                             <span>Made with <span class="material-symbols-rounded fill color-accent" id="heart">favorite</span> by Brandon Jones for Lenape High School</span>
                         </footer>
                     </group>
@@ -385,6 +391,15 @@
             <page id="debug" data-links-from="settings">
                 <button class="back" data-page-id="settings"><span class="material-symbols-rounded">chevron_left</span></button>
                 <settings>
+                    <legend>Alpha Features</legend>
+                    <group>
+                        <setting>
+                            <info>
+                                <name>Routes</name>
+                            </info>
+                            <button data-page-id="routes" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
+                        </setting>
+                    </group>
                     <legend>Notifications</legend>
                     <group>
                         <setting>

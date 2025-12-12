@@ -1,9 +1,16 @@
 let busRefreshInterval;
-async function renderBuses() {
+DocuPager.addEventListener('page-switch', (e) => {
     const config = JSON.parse(localStorage.getItem('config'));
+    if (e.detail.targetPage === 'home') {
+        renderBuses().then();
+        getContractorNumber().then();
+    }
     if (config['autoupdate']) {
         homePageAutoUpdate().then();
     }
+})
+async function renderBuses() {
+    const config = JSON.parse(localStorage.getItem('config'));
     let allBuses = await fetch('/api/buses')
         .then(res => res.json());
     if (allBuses) {
@@ -38,21 +45,11 @@ async function getContractorNumber() {
 
 async function homePageAutoUpdate() {
     busRefreshInterval = setInterval(renderBuses, 30000);
-    const observerOptions = { attributes: true };
-    const homePage = document.querySelector('page#home');
-    let docuPageMutationObserver = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            console.log(mutation.type, mutation.target.id, mutation.attributeName);
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class' && !String(mutation.target.className).includes('active')) { // we love pagination api not coming with built-in events
-                busRefreshInterval = null;
-                disconnectObserver();
-            }
-        });
+    DocuPager.addEventListener('page-switch', (e) => {
+        if (e.targetPage !== 'home') {
+            clearInterval(busRefreshInterval);
+        }
     });
-    function disconnectObserver() {
-        docuPageMutationObserver.disconnect();
-    }
-    docuPageMutationObserver.observe(homePage);
 }
 
 document.addEventListener('DOMContentLoaded',renderBuses);
