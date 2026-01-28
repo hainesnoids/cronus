@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const app = express();
 const PORT = 8000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {index:['index.html'],extensions:['html']}));
 app.listen(PORT, () => { console.log('Server Online, Loading API Endpoints') });
 
 // load api endpoints

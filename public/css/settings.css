@@ -70,14 +70,27 @@ setting .pageturner {
 setting .pageturner:hover {
     transform: none;
 }
-setting .pageturner .material-symbols-rounded {
+setting .pageturner span {
     color: var(--text-note);
+}
+setting .textturner {
+    background: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: var(--text-note);
+    padding-right: 6px;
 }
 settings #heart {
     font-size: 16pt;
     transform: translateY(0.2em);
 }
-group.width-fill {
+group.width-fill, group > footer {
     width: fit-content;
     padding: 10px 18px;
     margin-left: auto;
@@ -145,4 +158,45 @@ stngp p:last-child {
     width: calc(100% + 24px);
     border-radius: 24px 24px 0 0;
     max-height: 400px;
+}
+.settings-banner {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.settings-banner img {
+    width: 70%;
+}
+.hitmarker {
+    position: absolute;
+    transform: translate(50%, 100%);
+    animation:
+        hitmarker 1s cubic-bezier(0,0.85,1,0.15),
+        hitmarker-mvrot 1s linear;
+    --rng-pos: attr('data-pos', 10px);
+    --rng-rot: attr('data-rot', -10deg);
+}
+@keyframes hitmarker-mvrot {
+    from {
+        left: 0;
+        transform: translate(50%, 100%) rotate(0deg);
+    }
+    to {
+        left: var(--rng-pos);
+        transform: translate(50%, 100%) rotate(var(--rng-rot));
+    }
+}
+@keyframes hitmarker {
+    0% {
+
+    }
+    50% {
+
+    }
+    100% {
+
+    }
 }

@@ -1,0 +1,6 @@
+@font-face {
+    font-family: "Talk Comic";
+    font-weight: normal;
+    font-style: normal;
+    src: local('Talk Comic') url('../fonts/Talk Comic.otf');
+}

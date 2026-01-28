@@ -21,6 +21,7 @@ homemap {
     width: auto;
     padding: 24px;
     margin: auto;
+    position: relative;
 }
 .bus-row {
     display: flex;

@@ -27,6 +27,7 @@
     <script src="js/homepage.js"></script>
     <script src="js/onboarding.js"></script>
     <script src="js/routes.js"></script>
+    <script src="js/debug-page.js"></script>
 </head>
 <body>
 <main>
@@ -285,9 +286,56 @@
                     <group>
                         <setting>
                             <info>
-                                <name>About the Developer</name>
+                                <name>About Cronus</name>
                             </info>
                             <button data-page-id="about" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
+                        </setting>
+                    </group>
+                </settings>
+            </page>
+            <page id="about" data-links-from="settings">
+                <button class="back" data-page-id="settings"><span class="material-symbols-rounded">chevron_left</span></button>
+                <settings>
+                    <div class="settings-banner">
+                        <img src="img/logo.svg"/>
+                    </div>
+                    <group>
+                        <footer>
+                            <span>A product of</span>
+                            <img src="img/pegasystems-logo.svg"/>
+                            <span>© 2026 PegaSYS Technologies</span>
+                            <span>All rights reserved.</span>
+                        </footer>
+                    </group>
+                    <legend>This Version</legend>
+                    <group>
+                        <setting>
+                            <info>
+                                <name>Version</name>
+                            </info>
+                            <div class="textturner"><span>1.3.0</span></div>
+                        </setting>
+                        <setting>
+                            <info>
+                                <name>Build Number</name>
+                            </info>
+                            <div class="textturner"><span>1</span></div>
+                            <button id="debug-hint" class="pageturner"></button>
+                        </setting>
+                        <setting>
+                            <info>
+                                <name>Codename</name>
+                            </info>
+                            <div class="textturner"><span>sunburst-fluttershy</span></div>
+                        </setting>
+                    </group>
+                    <legend>Other Information</legend>
+                    <group>
+                        <setting>
+                            <info>
+                                <name>About the Developer</name>
+                            </info>
+                            <button data-page-id="aboutme" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
                         </setting>
                         <setting>
                             <info>
@@ -296,17 +344,11 @@
                             <button data-page-id="oss" class="pageturner"><span class="material-symbols-rounded">chevron_right</span></button>
                         </setting>
                     </group>
-                    <group class="width-fill">
-                        <footer>
-                            <span>Cronus</span>
-                            <span>Version 1.2.2 (1) (sunburst-rainbow)</span>
-                            <span>Made with <span class="material-symbols-rounded fill color-accent" id="heart">favorite</span> by Brandon Jones for Lenape High School</span>
-                        </footer>
-                    </group>
+                    <center><span>Made with <span class="material-symbols-rounded fill color-accent" id="heart">favorite</span> by Brandon Jones for Lenape High School</span></center>
                 </settings>
             </page>
-            <page id="about" data-links-from="settings">
-                <button class="back" data-page-id="settings"><span class="material-symbols-rounded">chevron_left</span></button>
+            <page id="aboutme" data-links-from="about">
+                <button class="back" data-page-id="about"><span class="material-symbols-rounded">chevron_left</span></button>
                 <h1>About the Developer</h1>
                 <settings>
                     <group>
@@ -314,10 +356,10 @@
                             <img class="settings-page-banner" src="img/pon3.gif" alt="vinyl scratch my fav" title="vinyl scratch my fav &lt;3">
                             <p>I'm Brandon, a freshman here at Lenape High School.</p>
                             <p>I learned Luau in 2020, but started learning Javascript in late 2024 as I didn't want to deal with the limitations of the big Luau-powered platforms (just Roblox).</p>
-                            <p>I came up with the idea for Cronus around October 2025 after realizing how much pain people had to go through just to figure out where their bus is. I worked on it on-and-off during November, and launched it on the 12th of December 2025.</p>
+                            <p>I came up with the idea for Cronus around October 2025 after realizing how much pain people had to go through just to figure out where their bus is. I worked on it on-and-off during November, and launched it at the start of 2026.</p>
                             <p hidden>You can also visit my personal website at <a target="_blank" href="https://ws4k.net">ws4k.net</a> if you wanted to view some of my other projects.</p>
                         </stngp>
-                        <stngp hidden>
+                        <stngp>
                             <ul class="socials">
                                 <li>
                                     <a target="_blank" href="https://bsky.app/profile/ws4k.net">
@@ -338,24 +380,6 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a target="_blank" href="https://discord.gg/9cT6rmxvT9">
-                                        <img src="img/socials/discord.svg" alt="Discord Icon">
-                                        <span>Discord</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://last.fm/user/hainesnoids">
-                                        <img src="img/socials/lastfm.svg" alt="Last.fm Icon">
-                                        <span>Last.fm</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="https://steamcommunity.com/id/hainesnoids">
-                                        <img src="img/socials/steam.svg" alt="Steam Icon">
-                                        <span>Steam</span>
-                                    </a>
-                                </li>
-                                <li>
                                     <a target="_blank" href="https://github.com/hainesnoids">
                                         <img src="img/socials/github.svg" alt="GitHub Icon">
                                         <span>GitHub</span>
@@ -366,25 +390,34 @@
                     </group>
                 </settings>
             </page>
-            <page id="oss" data-links-from="settings">
-                <button class="back" data-page-id="settings"><span class="material-symbols-rounded">chevron_left</span></button>
+            <page id="oss" data-links-from="about">
+                <button class="back" data-page-id="about"><span class="material-symbols-rounded">chevron_left</span></button>
                 <h1>Open Source Software</h1>
                 <settings>
                     <group>
                         <setting>
+                            <info>
+                                <name>Leaflet</name>
+                                <description>1.9.something</description>
+                            </info>
+                            <a href="https://leafletjs.com/" target="_blank"><button class="pageturner"><span class="material-symbols-rounded">open_in_new</span></button></a>
+                        </setting>
+                        <!--
+                        <setting hidden>
                             <info>
                                 <name>libDialog</name>
                                 <description>hainesnoids</description>
                             </info>
                             <a href="https://github.com/hainesnoids/libdialog" target="_blank"><button class="pageturner"><span class="material-symbols-rounded">open_in_new</span></button></a>
                         </setting>
-                        <setting>
+                        <setting hidden>
                             <info>
                                 <name>windowpager</name>
                                 <description>hainesnoids</description>
                             </info>
                             <a href="https://github.com/hainesnoids/libdialog" target="_blank"><button class="pageturner"><span class="material-symbols-rounded">open_in_new</span></button></a>
                         </setting>
+                        -->
                     </group>
                 </settings>
             </page>
