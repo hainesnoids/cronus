@@ -38,7 +38,7 @@ function unloadMap() {
 }
 
 DocuPager.addEventListener('page-switch', (e) => {
-    console.log('page-switch', e);
+    //console.log('page-switch', e);
     if (e.detail.targetPage === 'routes') {
         initMap();
     } else {

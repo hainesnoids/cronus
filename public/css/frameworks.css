@@ -53,6 +53,7 @@ select {
     border: none;
     transition: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
+select[si]
 ::picker(select) {
     appearance: base-select;
     border-radius: 20px;
