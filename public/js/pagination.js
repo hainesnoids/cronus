@@ -36,6 +36,13 @@ function pageInit() {
                 }}));
             })
         })
+        if (page.querySelector('.back[data-page-id]')) {
+            DocuPager.addEventListener('back-gesture', (e) => {
+                if (page.classList.contains('active')) {
+                    page.querySelector('.back[data-page-id]').click(); // worlds goofiest implementation LOL
+                }
+            })
+        }
         if (!pageLinks) {
             console.warn(`Page ${pageId} does not have a corresponding link to it.`);
         }
