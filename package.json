@@ -1,6 +1,6 @@
 {
-  "name": "cronus-api",
-  "version": "1.0.0",
+  "name": "cronus",
+  "version": "1.4.1",
   "description": "",
   "main": "index.js",
   "scripts": {
