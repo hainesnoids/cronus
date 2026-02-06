@@ -1,5 +1,7 @@
-<center>![](bus-map.png)</center>
+<center><img src="./bus-map.png"/></center>
+
 # Cronus
+
 **Real-time tool to assist students in finding school buses during dismissal**
 
 Cronus is a service designed to replace janky systems used by school districts to tell students where to find their bus during dismissal. 
