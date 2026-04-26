@@ -1,13 +1,15 @@
 {
   "name": "cronus",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create-pwa-assets": "pwa-asset-generator ./public/img/webapp-assets/icon.svg ./public/img/webapp-assets --background #1f242a --splash-only true --index ./public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pwa-asset-generator": "^8.1.4"
   }
 }

@@ -11,7 +11,7 @@
    xml:space="preserve"
    id="svg16"
    sodipodi:docname="icon.svg"
-   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
    inkscape:export-filename="icon_1024.png"
    inkscape:export-xdpi="614.40002"
    inkscape:export-ydpi="614.40002"
@@ -27,15 +27,15 @@
    inkscape:pageopacity="0.0"
    inkscape:pagecheckerboard="0"
    inkscape:deskcolor="#d1d1d1"
-   inkscape:zoom="1.0805476"
-   inkscape:cx="10.180024"
-   inkscape:cy="51.362846"
-   inkscape:window-width="1280"
-   inkscape:window-height="734"
+   inkscape:zoom="2.1610952"
+   inkscape:cx="68.021066"
+   inkscape:cy="86.298836"
+   inkscape:window-width="1920"
+   inkscape:window-height="1008"
    inkscape:window-x="0"
    inkscape:window-y="0"
    inkscape:window-maximized="1"
-   inkscape:current-layer="Layer-1" />
+   inkscape:current-layer="g16" />
 <defs
    id="defs1" />
 <g
@@ -147,7 +147,8 @@
    fill-rule="nonzero"
    opacity="1"
    stroke="none"
-   id="path14" />
+   id="path14"
+   style="fill:#575b66;fill-opacity:1" />
 <path
    d="M40.9 86C38.1386 86 35.9 88.2386 35.9 91C35.9 93.7614 38.1386 96 40.9 96C43.6614 96 45.9 93.7614 45.9 91C45.9 88.2386 43.6614 86 40.9 86Z"
    fill="#ffffff"

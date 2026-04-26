@@ -92,7 +92,9 @@ module.exports = {
                         table[15][2],
                         table[15][3],
                         table[15][4],
-                        table[15][5]
+                        table[15][5],
+                        table[15][6],
+                        table[15][7]
                     ],
                     southB: [
                         table[16][0],
@@ -100,7 +102,9 @@ module.exports = {
                         table[16][2],
                         table[16][3],
                         table[16][4],
-                        table[16][5]
+                        table[16][5],
+                        table[15][6],
+                        table[15][7]
                     ]
                 };
             }

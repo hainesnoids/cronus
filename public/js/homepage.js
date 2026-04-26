@@ -16,7 +16,7 @@ async function renderBuses() {
     if (allBuses) {
         Object.entries(allBuses).forEach(([key, value]) => {
             for (let i = 0; i < value.length; i++) {
-                document.querySelector(`bus[position="${key}"][offset="${i}"]`).innerHTML = value[i];
+                document.querySelectorAll(`bus[position="${key}"][offset="${i}"]`).forEach((b) => {b.innerHTML = value[i]});
             }
         });
     }
@@ -25,9 +25,11 @@ async function renderBuses() {
         let busLocation = await fetch(`/api/buslocation/${busNumber}`)
             .then(res => res.json())
             .then(d => d.location);
-        const focusedBus = document.querySelector(`bus[position="${busLocation.position}"][offset="${busLocation.offset}"]`);
-        focusedBus.setAttribute('highlight', 'true');
-        focusedBus.scrollIntoView({ 'block': 'center', 'behavior': 'smooth', 'container': 'nearest' });
+        const focusedBuses = document.querySelectorAll(`bus[position="${busLocation.position}"][offset="${busLocation.offset}"]`);
+        focusedBuses.forEach((focusedBus) => {
+            focusedBus.setAttribute('highlight', 'true');
+            focusedBus.scrollIntoView({ 'block': 'center', 'behavior': 'smooth', 'container': 'nearest' });
+        })
         document.querySelector('.bus-location-header').innerText = `Your bus is the ${busLocation.offset} bus in section ${busLocation.position}`;
     }
 }
