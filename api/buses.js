@@ -103,8 +103,8 @@ module.exports = {
                         table[16][3],
                         table[16][4],
                         table[16][5],
-                        table[15][6],
-                        table[15][7]
+                        table[16][6],
+                        table[16][7]
                     ]
                 };
             }

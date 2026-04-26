@@ -4,7 +4,7 @@
     <!-- Metadata -->
     <title>Cronus Live Preview</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="manifest" href="../manifest.json">
+    <link rel="manifest" href="manifest.json">
     <!-- External Resources -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Stylesheets -->
@@ -28,7 +28,7 @@
 <main>
     <div class="main">
         <pagebounds>
-            <page id="home" class="active">
+            <page id="preview" class="active">
                 <settings>
                     <div class="settings-banner relatively-small-size">
                         <img src="img/logo.svg"/>
@@ -80,12 +80,6 @@
                                 <bus hidden position="northA" offset="7">--</bus>
                             </row>
                         </div>
-                        <marker class="location-marker location-exit">
-                            <div class="location-marker-content">
-                                <span>D Hall</span>
-                                <span>Exit #3</span>
-                            </div>
-                        </marker>
                         <div class="bus-row buses-south">
                             <legend>South</legend>
                             <row>
@@ -95,6 +89,8 @@
                                 <bus position="southA" offset="3">--</bus>
                                 <bus position="southA" offset="4">--</bus>
                                 <bus position="southA" offset="5">--</bus>
+                                <bus position="southA" offset="6">--</bus>
+                                <bus position="southA" offset="7">--</bus>
                             </row>
                             <row>
                                 <bus position="southB" offset="0">--</bus>
@@ -103,6 +99,8 @@
                                 <bus position="southB" offset="3">--</bus>
                                 <bus position="southB" offset="4">--</bus>
                                 <bus position="southB" offset="5">--</bus>
+                                <bus position="southB" offset="6">--</bus>
+                                <bus position="southB" offset="7">--</bus>
                             </row>
                         </div>
                         <div class="bus-row buses-west">
@@ -120,7 +118,7 @@
                         </div>
                     </div>
                 </homemap>
-                    <h2 class="bus-location-header">Input your bus number here:</h2>
+                    <h2>Input your bus number here:</h2>
                     <setting data-id="busnumber" class="bigsetting">
                         <label>
                             <input type="number">
